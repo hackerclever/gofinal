@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 
 	"github.com/gin-gonic/gin"
@@ -23,6 +24,7 @@ func main() {
 	r.DELETE("/customers/:id", handlers.DeleteCustomer)
 	err := r.Run(":2009")
 	if err != nil {
-		fmt.Println("Customer service running.")
+		log.Fatal("Can't run server!", err)
 	}
+	fmt.Println("Customer service running.")
 }
